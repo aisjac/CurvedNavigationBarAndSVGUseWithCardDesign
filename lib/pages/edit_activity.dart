@@ -10,7 +10,6 @@ class EditActivity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("EditActivity"),),
       body: const Center(child: Icon(MyFlutterApp.svg2,size: 250,)),
     );
   }

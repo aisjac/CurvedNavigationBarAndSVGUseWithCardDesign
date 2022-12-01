@@ -1,5 +1,5 @@
-import 'package:bat_sh_app_card/bat_card.dart';
 import 'package:flutter/material.dart';
+import 'base_activity.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const CustomCard(),
+      home: const BaseActivity(),
     );
   }
 }

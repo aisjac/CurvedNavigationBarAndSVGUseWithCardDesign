@@ -8,14 +8,15 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CustomCard extends StatefulWidget {
-  const CustomCard({Key? key}) : super(key: key);
+class BaseActivity extends StatefulWidget {
+  const BaseActivity({Key? key}) : super(key: key);
 
   @override
-  State<CustomCard> createState() => _CustomCardState();
+  State<BaseActivity> createState() => _BaseActivityState();
 }
 
-class _CustomCardState extends State<CustomCard> {
+class _BaseActivityState extends State<BaseActivity> {
+  String title = "Base Activity";
   int _pageIndex = 0;
   final GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 
@@ -36,22 +37,145 @@ class _CustomCardState extends State<CustomCard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: ClipRRect(
+        borderRadius: BorderRadius.only(
+            topRight: Radius.circular(20), bottomRight: Radius.circular(20)),
+        child: Drawer(
+            child: ListView(
+          children: [
+            Container(
+              color: Colors.blue,
+              width: double.infinity,
+              height: 200,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.ac_unit,
+                    size: 100,
+                    color: Colors.white,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Text(
+                      "Aminul Islam Shaheen",
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            ListTile(
+              leading:
+                  ImageIcon(AssetImage("assets/images/home.png"), size: 30),
+              title: Text(
+                'Home',
+                style: TextStyle(fontSize: 18),
+              ),
+              onTap: () {
+                setState(() {
+                  int index = 0;
+                  _pageIndex = index;
+                  getAppBarTitle(index);
+                  Navigator.pop(context);
+                });
+                // print(widgetOptions.elementAt(_pageIndex));
+              },
+            ),
+            ListTile(
+              leading:
+                  ImageIcon(AssetImage("assets/images/edit.png"), size: 30),
+              title: Text(
+                'Edit',
+                style: TextStyle(fontSize: 18),
+              ),
+              onTap: () {
+                setState(() {
+                  int index = 1;
+                  _pageIndex = index;
+                  getAppBarTitle(index);
+                  Navigator.pop(context);
+                });
+                // print(widgetOptions.elementAt(_pageIndex));
+              },
+            ),
+            ListTile(
+              leading:
+                  ImageIcon(AssetImage("assets/images/delete.png"), size: 30),
+              title: Text(
+                'Delete',
+                style: TextStyle(fontSize: 18),
+              ),
+              onTap: () {
+                setState(() {
+                  int index = 2;
+                  _pageIndex = index;
+                  getAppBarTitle(index);
+                  Navigator.pop(context);
+                });
+                // print(widgetOptions.elementAt(_pageIndex));
+              },
+            ),
+            ListTile(
+              leading:
+                  ImageIcon(AssetImage("assets/images/settings.png"), size: 30),
+              title: Text(
+                'Settings',
+                style: TextStyle(fontSize: 18),
+              ),
+              onTap: () {
+                setState(() {
+                  int index = 3;
+                  _pageIndex = index;
+                  getAppBarTitle(index);
+                  Navigator.pop(context);
+                });
+                // print(widgetOptions.elementAt(_pageIndex));
+              },
+            ),
+            ListTile(
+              leading:
+                  ImageIcon(AssetImage("assets/images/user.png"), size: 30),
+              title: Text(
+                'profile',
+                style: TextStyle(fontSize: 18),
+              ),
+              onTap: () {
+                setState(() {
+                  int index = 4;
+                  _pageIndex = index;
+                  getAppBarTitle(index);
+                  Navigator.pop(context);
+                });
+                // print(widgetOptions.elementAt(_pageIndex));
+              },
+            ),
+          ],
+        )),
+      ),
+      appBar: AppBar(
+        title: Text(title),
+      ),
       backgroundColor: Colors.white,
       bottomNavigationBar: CurvedNavigationBar(
         items: [
-          ImageIcon(AssetImage("assets/images/home.png"),
-              size:_pageIndex==0 ? 25: 30, color: Colors.white,),
+          ImageIcon(
+            AssetImage("assets/images/home.png"),
+            size: _pageIndex == 0 ? 25 : 30,
+            color: Colors.white,
+          ),
           ImageIcon(AssetImage("assets/images/edit.png"),
-              size: _pageIndex==1 ? 25: 30, color: Colors.white),
+              size: _pageIndex == 1 ? 25 : 30, color: Colors.white),
           ImageIcon(AssetImage("assets/images/delete.png"),
-              size: _pageIndex==2 ? 25: 30, color: Colors.white),
+              size: _pageIndex == 2 ? 25 : 30, color: Colors.white),
           ImageIcon(AssetImage("assets/images/settings.png"),
-              size: _pageIndex==3 ? 25: 30, color: Colors.white),
+              size: _pageIndex == 3 ? 25 : 30, color: Colors.white),
           ImageIcon(AssetImage("assets/images/user.png"),
-              size: _pageIndex==4 ? 25: 30, color: Colors.white),
+              size: _pageIndex == 4 ? 25 : 30, color: Colors.white),
         ],
-
-
         color: Colors.purple,
         buttonBackgroundColor: Colors.purple,
         backgroundColor: Colors.white,
@@ -61,6 +185,7 @@ class _CustomCardState extends State<CustomCard> {
         onTap: (index) {
           setState(() {
             _pageIndex = index;
+            getAppBarTitle(index);
           });
         },
       ),
@@ -179,6 +304,28 @@ class _CustomCardState extends State<CustomCard> {
     // ));
   }
 
+  void getAppBarTitle(int index) {
+    switch (index) {
+      case 0:
+        title = "Home";
+        return;
+      case 1:
+        title = "Edit";
+        return;
+      case 2:
+        title = "Delete";
+        return;
+      case 3:
+        title = "Settings";
+        return;
+      case 4:
+        title = "Profile";
+        return;
+      default :
+        title = "Home";
+    }
+  }
+
   // void navItemRoute(int index) {
   //   switch (index) {
   //     case 0:
@@ -204,4 +351,3 @@ class _CustomCardState extends State<CustomCard> {
   //   }
   // }
 }
-

@@ -9,7 +9,6 @@ class HomeActivity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("HomeActivity"),),
       body: const Center(child: Icon(MyFlutterApp.svg1,size: 250,)),
     );
   }

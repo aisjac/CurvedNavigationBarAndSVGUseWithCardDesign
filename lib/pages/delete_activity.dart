@@ -10,7 +10,7 @@ class DeleteActivity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("DeleteActivity"),),
+
       body: Card(
         elevation: 2,
         child: ListTile(
