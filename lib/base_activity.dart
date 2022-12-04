@@ -37,6 +37,7 @@ class _BaseActivityState extends State<BaseActivity> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       drawer: ClipRRect(
         borderRadius: BorderRadius.only(
             topRight: Radius.circular(20), bottomRight: Radius.circular(20)),
@@ -159,7 +160,8 @@ class _BaseActivityState extends State<BaseActivity> {
       appBar: AppBar(
         title: Text(title),
       ),
-      backgroundColor: Colors.white,
+     // backgroundColor: Colors.white,
+
       bottomNavigationBar: CurvedNavigationBar(
         items: [
           ImageIcon(
@@ -178,7 +180,7 @@ class _BaseActivityState extends State<BaseActivity> {
         ],
         color: Colors.purple,
         buttonBackgroundColor: Colors.purple,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         animationCurve: Curves.easeInOut,
         animationDuration: const Duration(milliseconds: 400),
         height: 65,
