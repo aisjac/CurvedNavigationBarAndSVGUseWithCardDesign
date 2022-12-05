@@ -21,6 +21,7 @@ class _BaseActivityState extends State<BaseActivity> {
   final GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 
   List<Widget> widgetOptions = [
+
     // ImageIcon(AssetImage("assets/images/home.png"),size: 100,color: Colors.purple),
     // ImageIcon(AssetImage("assets/images/edit.png"),size: 100,color: Colors.purple),
     // ImageIcon(AssetImage("assets/images/delete.png"),size: 100,color: Colors.purple),
