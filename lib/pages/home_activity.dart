@@ -1,19 +1,37 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../custom_icon/svg_icons.dart';
 
-class HomeActivity extends StatelessWidget {
-  const HomeActivity({Key? key}) : super(key: key);
+class HomeActivity extends StatefulWidget {
+  HomeActivity({Key? key}) : super(key: key);
+
+  @override
+  State<HomeActivity> createState() => _HomeActivityState();
+}
+
+class _HomeActivityState extends State<HomeActivity> {
+  bool isCheckerTrue = false;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(milliseconds: 3000), () {
+      setState(() {
+        isCheckerTrue = true;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Color(0xffF9FAFC),
-        child: SingleChildScrollView(
+        // color: Color(0xffF9FAFC),
+        child:  SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          child: Column(
+          child: isCheckerTrue ? Column(
             children: [
               Row(
                 children: [
@@ -463,9 +481,905 @@ class HomeActivity extends StatelessWidget {
               ),
               SizedBox(height: 75,),
             ],
-          ),
+          ) : darkShimmerEffect(),
         ),
       ),
     );
+  }
+
+  Shimmer lightShimmerEffect() {
+    return Shimmer.fromColors( baseColor: Colors.grey[300]!, highlightColor: Colors.grey[200]!,child: Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 25,top: 15,),
+              child: Container(
+                height: 32,
+                width: 50,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    color: Color(0xffF1F2F4)),
+              ),
+            ),
+            Center(
+              child: Container(
+                margin: EdgeInsets.only(top: 15),
+                height: 32,
+                width: 200,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    color: Color(0xffF1F2F4)),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: Container(
+                        height: 15,
+                        width: 15,
+                        color: Colors.white,
+                      ),
+                    ),
+                     Container(
+                      height: 15,
+                      width: 15,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            Padding(
+                padding: const EdgeInsets.only(top: 15,right: 25),
+              child: Container(
+                height: 32,
+                width: 50,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    color: Color(0xffF1F2F4)),
+              ),)
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 15, right: 20, top: 15),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(4),
+            child: Container(
+              height: 200,
+              width: 400,
+              color: Colors.white,
+            ),
+          ),
+        ),
+        Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 20, left: 18),
+              child: Row(
+                children: [
+                  Container(
+                    height: 100,
+                    width: 80,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Color(0xffEEF4F6),
+                    ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding:
+                          const EdgeInsets.only(top: 15, bottom: 8),
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                            child: Container(
+                              height: 50,
+                              width: 50,
+                              color: Colors.white,
+                            ),),
+                        ),
+                        Container(
+                          height: 15,
+                          width: 15,
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20, left: 10),
+              child: Row(
+                children: [
+                  Container(
+                    height: 100,
+                    width: 80,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Color(0xffEEF4F6),
+                    ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding:
+                          const EdgeInsets.only(top: 15, bottom: 8),
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                            child: Container(
+                              height: 50,
+                              width: 50,
+                              color: Colors.white,
+                            ),),
+                        ),
+                        Container(
+                          height: 15,
+                          width: 15,
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20, left: 10),
+              child: Row(
+                children: [
+                  Container(
+                    height: 100,
+                    width: 80,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Color(0xffEEF4F6),
+                    ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding:
+                          const EdgeInsets.only(top: 15, bottom: 8),
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                            child: Container(
+                              height: 50,
+                              width: 50,
+                              color: Colors.white,
+                            ),),
+                        ),
+                        Container(
+                          height: 15,
+                          width: 15,
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20, left: 10),
+              child: Row(
+                children: [
+                  Container(
+                    height: 100,
+                    width: 80,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Color(0xffEEF4F6),
+                    ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding:
+                          const EdgeInsets.only(top: 15, bottom: 8),
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                            child: Container(
+                              height: 50,
+                              width: 50,
+                              color: Colors.white,
+                            ),),
+                        ),
+                        Container(
+                          height: 15,
+                          width: 15,
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+
+        // Text("Ais jac",style: TextStyle(color: Colors.red,fontSize: 25),),
+
+        Container(
+          margin: EdgeInsets.only(left: 15, right: 20, top: 20, bottom: 20),
+          height: 80,
+          width: 450,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Color(0xffDDF2E9),),
+        ),
+        Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 15, right: 20),
+                child: Container(
+                  height: 32,
+                  width: 100,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      color: Color(0xffF1F2F4)),
+                ),
+            ),
+            Spacer(),
+
+          Container(
+              height: 32,
+              width: 75,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+                color: Color(0xffF1F2F4)),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 20),
+              child: Icon(Icons.arrow_forward_ios_sharp,
+                  size: 15, color: Colors.black54),
+            )
+          ],
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(left: 15, top: 15),
+                height: 150,
+                width: 130,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Color(0xffEEF4F6),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 15, left: 10),
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                          child: Container(
+                            height: 70,
+                            width: 70,
+                            color: Colors.white,
+                          ),),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 19, top: 10),
+                        child: Container(
+                          height: 15,
+                          width: 15,
+                          color: Colors.white,
+                        ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 19, top: 3),
+                      child: Container(
+                        height: 15,
+                        width: 15,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 17, top: 5),
+                          child: Container(
+                            height: 15,
+                            width: 15,
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        Container(
+                          height: 15,
+                          width: 15,
+                          color: Colors.white,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 15, top: 15),
+                height: 150,
+                width: 130,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Color(0xffEEF4F6),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 15, left: 10),
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                          child: Container(
+                            height: 50,
+                            width: 50,
+                            color: Colors.white,
+                          ),),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 19, top: 10),
+                      child: Container(
+                        height: 15,
+                        width: 15,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 19, top: 3),
+                      child: Container(
+                        height: 15,
+                        width: 15,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 17, top: 5),
+                          child: Container(
+                            height: 15,
+                            width: 15,
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        Container(
+                          height: 15,
+                          width: 15,
+                          color: Colors.white,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 17, top: 15),
+                height: 150,
+                width: 130,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Color(0xffEEF4F6),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 15, left: 10),
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                          child: Container(
+                            height: 70,
+                            width: 70,
+                            color: Colors.white,
+                          ),),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 19, top: 10),
+                      child: Container(
+                        height: 15,
+                        width: 15,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 19, top: 3),
+                      child: Container(
+                        height: 15,
+                        width: 15,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 17, top: 5),
+                          child: Container(
+                            height: 15,
+                            width: 15,
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        Container(
+                          height: 15,
+                          width: 15,
+                          color: Colors.white,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: 75,),
+      ],
+    ),);
+
+  }
+
+  Shimmer darkShimmerEffect() {
+    return Shimmer.fromColors( baseColor: Colors.grey[500]!, highlightColor: Colors.grey[800]!,child: Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 25,top: 15,),
+              child: Container(
+                height: 32,
+                width: 50,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    color: Color(0xffF1F2F4)),
+              ),
+            ),
+            Center(
+              child: Container(
+                margin: EdgeInsets.only(top: 15),
+                height: 32,
+                width: 200,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    color: Color(0xffF1F2F4)),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: Container(
+                        height: 15,
+                        width: 15,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Container(
+                      height: 15,
+                      width: 15,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(top: 15,right: 25),
+              child: Container(
+                height: 32,
+                width: 50,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    color: Color(0xffF1F2F4)),
+              ),)
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 15, right: 20, top: 15),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(4),
+            child: Container(
+              height: 200,
+              width: 400,
+              color: Colors.white,
+            ),
+          ),
+        ),
+        Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 20, left: 18),
+              child: Row(
+                children: [
+                  Container(
+                    height: 100,
+                    width: 80,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Color(0xffEEF4F6),
+                    ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding:
+                          const EdgeInsets.only(top: 15, bottom: 8),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Container(
+                              height: 50,
+                              width: 50,
+                              color: Colors.white,
+                            ),),
+                        ),
+                        Container(
+                          height: 15,
+                          width: 15,
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20, left: 10),
+              child: Row(
+                children: [
+                  Container(
+                    height: 100,
+                    width: 80,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Color(0xffEEF4F6),
+                    ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding:
+                          const EdgeInsets.only(top: 15, bottom: 8),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Container(
+                              height: 50,
+                              width: 50,
+                              color: Colors.white,
+                            ),),
+                        ),
+                        Container(
+                          height: 15,
+                          width: 15,
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20, left: 10),
+              child: Row(
+                children: [
+                  Container(
+                    height: 100,
+                    width: 80,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Color(0xffEEF4F6),
+                    ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding:
+                          const EdgeInsets.only(top: 15, bottom: 8),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Container(
+                              height: 50,
+                              width: 50,
+                              color: Colors.white,
+                            ),),
+                        ),
+                        Container(
+                          height: 15,
+                          width: 15,
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20, left: 10),
+              child: Row(
+                children: [
+                  Container(
+                    height: 100,
+                    width: 80,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Color(0xffEEF4F6),
+                    ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding:
+                          const EdgeInsets.only(top: 15, bottom: 8),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Container(
+                              height: 50,
+                              width: 50,
+                              color: Colors.white,
+                            ),),
+                        ),
+                        Container(
+                          height: 15,
+                          width: 15,
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+
+        // Text("Ais jac",style: TextStyle(color: Colors.red,fontSize: 25),),
+
+        Container(
+          margin: EdgeInsets.only(left: 15, right: 20, top: 20, bottom: 20),
+          height: 80,
+          width: 450,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Color(0xffDDF2E9),),
+        ),
+        Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 15, right: 20),
+              child: Container(
+                height: 32,
+                width: 100,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    color: Color(0xffF1F2F4)),
+              ),
+            ),
+            Spacer(),
+
+            Container(
+              height: 32,
+              width: 75,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25),
+                  color: Color(0xffF1F2F4)),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 20),
+              child: Icon(Icons.arrow_forward_ios_sharp,
+                  size: 15, color: Colors.black54),
+            )
+          ],
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(left: 15, top: 15),
+                height: 150,
+                width: 130,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Color(0xffEEF4F6),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 15, left: 10),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Container(
+                            height: 70,
+                            width: 70,
+                            color: Colors.white,
+                          ),),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 19, top: 10),
+                      child: Container(
+                        height: 15,
+                        width: 15,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 19, top: 3),
+                      child: Container(
+                        height: 15,
+                        width: 15,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 17, top: 5),
+                          child: Container(
+                            height: 15,
+                            width: 15,
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        Container(
+                          height: 15,
+                          width: 15,
+                          color: Colors.white,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 15, top: 15),
+                height: 150,
+                width: 130,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Color(0xffEEF4F6),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 15, left: 10),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Container(
+                            height: 50,
+                            width: 50,
+                            color: Colors.white,
+                          ),),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 19, top: 10),
+                      child: Container(
+                        height: 15,
+                        width: 15,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 19, top: 3),
+                      child: Container(
+                        height: 15,
+                        width: 15,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 17, top: 5),
+                          child: Container(
+                            height: 15,
+                            width: 15,
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        Container(
+                          height: 15,
+                          width: 15,
+                          color: Colors.white,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 17, top: 15),
+                height: 150,
+                width: 130,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Color(0xffEEF4F6),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 15, left: 10),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Container(
+                            height: 70,
+                            width: 70,
+                            color: Colors.white,
+                          ),),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 19, top: 10),
+                      child: Container(
+                        height: 15,
+                        width: 15,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 19, top: 3),
+                      child: Container(
+                        height: 15,
+                        width: 15,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 17, top: 5),
+                          child: Container(
+                            height: 15,
+                            width: 15,
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        Container(
+                          height: 15,
+                          width: 15,
+                          color: Colors.white,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: 75,),
+      ],
+    ),);
+
   }
 }

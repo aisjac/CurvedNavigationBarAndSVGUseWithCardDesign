@@ -39,6 +39,7 @@ dependencies:
   curved_navigation_bar: ^1.0.3
   flutter_sslcommerz: ^2.2.2-nullsafety.0
   fluttertoast: ^8.1.1
+  shimmer: ^2.0.0
 
 
 dev_dependencies:
